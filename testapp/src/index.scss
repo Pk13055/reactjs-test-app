@@ -1,0 +1,106 @@
+$blue: #1E90FF;
+$red: #800020;
+
+body {
+  font: 1.2em "Century Gothic", Futura, sans-serif;
+  margin: 1.2em;
+}
+
+ol, ul {
+  padding-left: 2em;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: 500;
+  color: $blue;
+
+  &:hover {
+    color:$red;
+  }
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 3em;
+  height: 3em;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0.3em;
+  text-align: center;
+  width: 3em;
+  color: $blue;
+
+    &:focus {
+      outline: none;
+      background: #ddd;
+      color: $red;
+
+    }
+    &:hover {
+      background-color: #B9B9B9;
+    }
+}
+
+@mixin btn($normal, $hover:#FFF) {
+  margin: 1rem;
+  padding: 1.4rem;
+  display: inline-block;
+  font-weight: 300;
+  border-width: 0.4px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.3rem;
+  background-color: $normal;
+  color: #FFF;
+  
+  &:hover {
+    background-color: $hover;
+    font-weight: 500;
+  }
+  
+}
+
+.refresh {
+  @include btn($blue, $red);
+}
+
+.undo-btn {
+  @include btn($blue);
+}
+
+.redo-btn {
+  @include btn($red);
+}
+
+.kbd-navigation {
+    background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  // margin: 0 40%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44%;
+}
+
+.game-info {
+  margin-left: 1.2em;
+}
